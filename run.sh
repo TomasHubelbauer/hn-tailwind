@@ -1,0 +1,1 @@
+npx tailwindcss > index.css
