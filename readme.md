@@ -255,3 +255,96 @@ The link list is an `ol` and I found that `list-decimal` is the way to make it
 show the numbers.
 
 By default even unordered lists do not show the list points in Tailwind.
+
+`amber-50` was the closest color from the Tailwind built-in colors to
+approximate the Hackew News background.
+Funnily enough the site is mockingly called "the Orange Site" yet `orange-50`
+wasn't the right fit here.
+I am sure it will redeem itself when I go coloring the main menu.
+Since this was for a background color, I needed to prefix the color with `bg-`.
+
+To get the body margin (which Tailwind zeroes by default) back, I used `m-2` on
+the `body`.
+It seems to match HN's pretty closely.
+
+Now for the header background color.
+I found that `orange-500` matches the Hacker News color almost perfectly so I
+guess the site did redeem itself, indeed!
+
+My menu is two-rows now because I don't have the right-float items figured out
+yet.
+A "float" is an old-school way of saying I need to make it a flex container and
+put an automatic margin on the last item.
+
+At this point I am slowly but surely starting to get why people like Tailwind.
+Prototyping this site is _fast_ so far.
+Granted, Hacker News is a simple site and it wouldn't be all that slower without
+Tailwind, but I do feel the power of fast prototyping on my fingerprints using
+it and that's a good sign!
+
+The first menu link (the Hacker News "logo" link) needs to be bold and a bit
+larger.
+Since the menu is a flex container now, I can also introduce gaps between the
+items so that aren't as crowded as they are without.
+
+Initially I thought I would set the logo graphic as a background image of the
+Hacker News logo link, but real HN uses an image for it and it seemed easier to
+do the same thing to not overcomplicate the utility classes.
+
+I downloaded the image off HN to the repository because it seems to load super
+slowly or maybe it was just Firefox being weird on me.
+
+Turns out to do a 1-pixel wide border, `border` is the way to go, not `border-1`
+which surprised me but I think it makes sense.
+Maybe `border-1` should print a warning?
+One would think this would be a common mistake.
+
+I put the image into the logo link so it is clickable as well.
+Unfortunately, this made the logo link break into two rows.
+I messed around with `whitespace-pre` but that blew up the logo because there is
+whitespace before the `img` (I think).
+I settled on using `flex` with a nested `gap`.
+
+I put a padding on the menu row to match the HN spacing.
+`0.5` looked best but I was disappointed to learn I can't do `p-.5`, have to do
+`p-0.5`.
+
+With the logo being a flex container the inline links in the rest of the menu
+look off vertically now so I need to align the menu row flex items centerwise as
+well.
+
+The link text font size was matched using `text-sm`.
+That looked good.
+
+The "logout" item is weird.
+It seems to stick to the end of the row, not respecting the padding.
+And it should be padded more according to the HN template, so I tried using
+`pr-2` on the menu row to no avail.
+
+I still need to figure this out.
+
+The rough next steps:
+
+- [ ] Figure out the "logout" item right padding from parent not being respected
+- [ ] Mark the "news" item as active using the light color
+  - [ ] Consider expanding this to `:target` and pure-CSS tabs
+- [ ] Look into VS Code Tailwind extension for utility class auto-complete
+- [ ] Figure out the list item numbers being outside of the area by default
+- [ ] Expand the list items to have the control links and other details
+  - [ ] Consider generating these dynamically
+    This might make the previewing/testing experience a bit slower so be aware.
+- [ ] Figure out why Firefox is laggy on this file - is it the watcher?
+  - [ ] Try working with the watcher off to see if it is access race
+    Maybe my browser refresh comes too early while the file is still being
+    compiled or written by the watcher.
+  - [ ] Consider using VS Code extension to have the browser page side by side
+    I could side-step this whole issue by trying this out.
+    There should be non-localhost based preview extensions hopefully.
+  - [ ] Consider figuring out Tailwind hot reload or generic hot reload
+    This would solve potential file access race issue if it is that.
+- [ ] Design the list items
+- [ ] Design the footer items
+- [ ] Consider also designing the discussion tree for practice/experience
+- [ ] Consider hooking this up to the Hacker News API for live data
+  This would make the list load with a delay so might interfere with iteration
+  speed while testing manually.
