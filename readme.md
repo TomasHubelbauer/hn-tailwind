@@ -241,3 +241,17 @@ the container resizes and accomodates to fit the viewport width.
 I think it is time to turn on `--watch` now as I've already forgotten to run
 `./run.sh` a couple of times and then was bamboozled as to why my changes were
 not working.
+
+Funnily enough, `lg` matches the width of the Hacker News main body almost
+exactly at my breakpoint when the browser is maximized.
+I will decide later on whether I want to go for a pixel-perfect copy or just an
+approximation which won't look exactly like Hacker News but will be nice in
+terms of the Tailwind classes and how I use them.
+I am already leaning towards the latter.
+
+Let's block out the main menu, the link list and the footer now.
+I have only added the container divs and a few links for now.
+The link list is an `ol` and I found that `list-decimal` is the way to make it
+show the numbers.
+
+By default even unordered lists do not show the list points in Tailwind.
