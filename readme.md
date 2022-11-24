@@ -216,3 +216,28 @@ This should be enough to be able to put together a simple development loop of
 edit, compile, test.
 
 Let's start building Hacker News, then!
+First, let's block out the major landmarks of the site.
+We have the centered column containing the whole of the content.
+We have the top menu row with the link navigation and optionally, the logged in
+user controls.
+We have the list of links and their associated controls.
+And lastly, we have the footer with more links and the search field.
+
+In terms of the main body wrapper, I want to center it relative to the viewport,
+and one of the ways to do this is to make the `body` element a flex container.
+Then, the content container can be centered using `justify-content: center`.
+A quick helping of `<body class="flex justify-center">` will make this happen
+for us.
+
+To give the main container a size relative to the viewport, it seems one of the
+container classes in Tailwind will be a way to go.
+Let's go with `lg`, the 1024px breakpoint.
+It seems it needs to be used in conjunction with `container`, so:
+`<div class="container lg">`.
+
+Resizing the browser window, it seems we do get some built-in breakpoints and
+the container resizes and accomodates to fit the viewport width.
+
+I think it is time to turn on `--watch` now as I've already forgotten to run
+`./run.sh` a couple of times and then was bamboozled as to why my changes were
+not working.

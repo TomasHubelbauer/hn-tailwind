@@ -1,1 +1,1 @@
-npx tailwindcss > index.css
+npx tailwindcss --watch > index.css
