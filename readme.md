@@ -349,3 +349,4 @@ The rough next steps:
 - [ ] Consider hooking this up to the Hacker News API for live data
   This would make the list load with a delay so might interfere with iteration
   speed while testing manually.
+  - [ ] Consider hosting a GitHub Pages version to be able to use read-only
