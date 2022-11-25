@@ -325,6 +325,8 @@ I still need to figure this out.
 
 The rough next steps:
 
+- [ ] Build in GitHub Pages CI and deploy the Tailwind artifact
+  I have decided to enable GitHub Pages but I don't want to commit the output.
 - [ ] Use the logo for the tab icon as well
 - [ ] Figure out the "logout" item right padding from parent not being respected
 - [ ] Mark the "news" item as active using the light color
